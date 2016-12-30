@@ -86,15 +86,17 @@ public class SimpleServer extends NanoHTTPD{
 				} else {
 					dataString = dataString + (char)content;
 				}
-			}try {
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
 				if (fis != null)
 					fis.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 
 		return dataString;
