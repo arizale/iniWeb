@@ -47,9 +47,9 @@ import java.net.*;
 @SuppressWarnings("unchecked")
 public class NanoHTTPD
 {
-	// ==================================================
-	// API parts
-	// ==================================================
+	/// ==================================================
+	/// API parts
+	/// ==================================================
 
 	/**
 	 * Override this to customize the server.<p>
@@ -64,7 +64,7 @@ public class NanoHTTPD
 	 */
 	public Response serve( String uri, String method, Properties header, Properties parms )
 	{
-		System.out.println( method + " '" + uri + "' " );
+		//System.out.println( method + " '" + uri + "' " );
 
 		Enumeration e = header.propertyNames();
 		while ( e.hasMoreElements())
@@ -277,7 +277,7 @@ public class NanoHTTPD
 					sendError( HTTP_BADREQUEST, "BAD REQUEST: Missing URI. Usage: GET /example/file.html" );
 
 				String uri = st.nextToken();
-
+				//System.out.println("uri "+ uri);
 				// Decode parameters from the URI
 				Properties parms = new Properties();
 				int qmi = uri.indexOf( '?' );
@@ -331,7 +331,13 @@ public class NanoHTTPD
 				}
 
 				// Ok, now do the serve()
+				//bvwat misahin gambar sama file
+				//uri /background.png
+				
 				Response r = serve( uri, method, header, parms );
+				
+				
+				System.out.println("loading...");
 				if ( r == null )
 					sendError( HTTP_INTERNALERROR, "SERVER INTERNAL ERROR: Serve() returned a null response." );
 				else
