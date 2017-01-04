@@ -12,8 +12,7 @@ public class SimpleServer extends NanoHTTPD{
 	File currentDir = new File(".");
 	File parentDir = currentDir.getParentFile();
 	
-	
-	String basePath = "res/";
+	String basePath = "widget/";
 
 	public SimpleServer(int port) throws IOException {
 		super(port);
