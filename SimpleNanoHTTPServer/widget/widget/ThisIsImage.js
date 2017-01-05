@@ -6,12 +6,9 @@ Clazz.com.widget.image.ThisIsImage = Clazz.extend(Clazz.Widget, {
 	 renderUI : function(){
 	 	this.basicWidgetFragmentImg = document.createElement("img");
         this.basicWidgetFragmentImg.setAttribute("id", "myImage");
-
         return this.basicWidgetFragmentImg;
-
         },
 
-    
     bindUI : function(){
 
 	}

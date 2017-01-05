@@ -5,8 +5,7 @@ Clazz.com.widget.basic.BasicWidget = Clazz.extend(Clazz.Widget, {
     basicWidgetFragmentBtn2 : null,
     basicWidgetFragmentBtn3 : null,
 	basicWidgetFragmentBtn4 : null,
-   
-
+    
     renderUI : function(){
         this.basicWidgetFragmentBtn1 = document.createElement("LI");
         this.basicWidgetFragmentBtn1.setAttribute("class", "basicWidget1");
@@ -17,27 +16,33 @@ Clazz.com.widget.basic.BasicWidget = Clazz.extend(Clazz.Widget, {
 		this.basicWidgetFragmentBtn4 = document.createElement("LI");
 		this.basicWidgetFragmentBtn4.setAttribute("class", "basicWidget4");
 
-        return [this.basicWidgetFragmentBtn1, this.basicWidgetFragmentBtn2, this.basicWidgetFragmentBtn3,
-        this.basicWidgetFragmentBtn4, this.basicWidgetFragmentBtn5];
+        return [this.basicWidgetFragmentBtn1, this.basicWidgetFragmentBtn2,
+        		this.basicWidgetFragmentBtn3, this.basicWidgetFragmentBtn4];
     },
-
     
     bindUI : function(){
+        ContainerImg = document.getElementById("img");
+        
+        basicImage01 = new Clazz.com.widget.imageSatu.WidgetImageSatu();
+        basicImage02 = new Clazz.com.widget.imageDua.WidgetImageDua();
+        basicImage03 = new Clazz.com.widget.imageTiga.WidgetImageTiga();
+        basicImage04 = new Clazz.com.widget.imageEmpat.WidgetImageEmpat(); 
+
         this.basicWidgetFragmentBtn1.innerHTML = "Button 1";
         this.basicWidgetFragmentBtn1.onclick = function (){
-        	basicWidgetFragmentImg = document.getElementById("myImage").src='img/satu.png';
+        basicImage02.render(ContainerImg);
         };
         this.basicWidgetFragmentBtn2.innerHTML = "Button 2";
 		this.basicWidgetFragmentBtn2.onclick = function (){
-        	basicWidgetFragmentImg = document.getElementById("myImage").src='img/dua.png';
+        	basicImage02.render(ContainerImg);
         };
         this.basicWidgetFragmentBtn3.innerHTML = "Button 3";
 		this.basicWidgetFragmentBtn3.onclick = function (){
-        	basicWidgetFragmentImg = document.getElementById("myImage").src='img/tiga.png';
+        	basicImage03.render(ContainerImg);
         };
         this.basicWidgetFragmentBtn4.innerHTML = "Button 4";
         this.basicWidgetFragmentBtn4.onclick = function (){
-        	basicWidgetFragmentImg = document.getElementById("myImage").src='img/empat.png';
+        	basicImage04.render(ContainerImg);
         };
     }
     

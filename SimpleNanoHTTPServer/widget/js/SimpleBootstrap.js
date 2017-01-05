@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 
         var basicImage = new Clazz.com.widget.image.ThisIsImage();
         basicImage.render(wiggetContainerImg);
+
+        
 }); 
  
 var startBasicWidget = function(container){ 
