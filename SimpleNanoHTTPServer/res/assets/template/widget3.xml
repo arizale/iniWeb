@@ -1,7 +1,11 @@
 <div>
     <h2>The Third Widget</h2>
     <table style="width:100%">
-       <tr>
+        <tr>
+            <td>First Name</td>
+            <td><th id="ID">{{idResult}}</th></td> 
+        </tr>
+        <tr>
             <td>First Name</td>
             <td><th id="firstNameResult">{{firstNameResult}}</th></td> 
         </tr>

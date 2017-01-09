@@ -12,7 +12,7 @@ public class SimpleServer extends NanoHTTPD{
 	File currentDir = new File(".");
 	File parentDir = currentDir.getParentFile();
 	
-	String basePath = "widget/";
+	String basePath = "res/assets/";
 
 	public SimpleServer(int port) throws IOException {
 		super(port);
@@ -26,6 +26,8 @@ public class SimpleServer extends NanoHTTPD{
 		int index = uri.lastIndexOf('.');
 		if (index > 0) {
 			extension = uri.substring(index+1);
+		} else {
+			return handleRestRequest(uri, method, header, parms);
 		}
 		
 		String contentType = "text/plain";
@@ -47,6 +49,22 @@ public class SimpleServer extends NanoHTTPD{
 		}
 		
 		Response response = new Response(HTTP_OK, contentType, getFile(uri));
+		return response;
+	}
+	
+	public Response handleRestRequest(String uri, String method, Properties header, Properties parms){
+		Response response= null;
+		String contentType = "application/json";
+		if(uri.toLowerCase().contains("get_id")){
+			String name = parms.getProperty("name", "");
+            String address = parms.getProperty("address", "");
+            String city = parms.getProperty("city", "");
+            int idHash = (name+address+city).hashCode();
+			String responseString = "{\"id\":\""+idHash+"\"}";
+			response = new Response (HTTP_OK, contentType, responseString);
+		} else {
+			response = new Response (HTTP_OK, "text/plain", "");
+		}
 		return response;
 	}
 
